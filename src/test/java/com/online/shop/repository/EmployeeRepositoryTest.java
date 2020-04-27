@@ -1,6 +1,7 @@
 package com.online.shop.repository;
 
 import com.online.shop.model.User.Employee;
+import com.online.shop.repository.User.EmployeeRepository;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

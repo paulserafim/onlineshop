@@ -1,6 +1,5 @@
-package com.online.shop.repository;
+package com.online.shop.repository.User;
 
-import com.online.shop.model.User.Client;
 import com.online.shop.model.User.User;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
