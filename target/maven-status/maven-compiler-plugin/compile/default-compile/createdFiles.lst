@@ -1,0 +1,16 @@
+com/online/shop/onlineshop/model/user/Employee.class
+com/online/shop/onlineshop/repository/user/ClientRepository.class
+com/online/shop/onlineshop/repository/user/EmployeeRepository.class
+com/online/shop/onlineshop/OnlineShopApplication.class
+com/online/shop/onlineshop/model/Product.class
+com/online/shop/onlineshop/repository/ProductRepository.class
+com/online/shop/onlineshop/model/user/User.class
+com/online/shop/onlineshop/model/user/Client.class
+com/online/shop/onlineshop/BeanConfiguration.class
+com/online/shop/onlineshop/config/DataProperties.class
+com/online/shop/onlineshop/profiles/InfoLogger.class
+com/online/shop/onlineshop/profiles/LoggerInterface.class
+com/online/shop/onlineshop/repository/user/UserRepository.class
+com/online/shop/onlineshop/model/user/Order.class
+com/online/shop/onlineshop/config/ConfigProperties.class
+com/online/shop/onlineshop/repository/OrderRepository.class

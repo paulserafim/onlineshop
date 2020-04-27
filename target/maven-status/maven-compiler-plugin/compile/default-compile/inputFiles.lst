@@ -1,0 +1,16 @@
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/model/Product.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/repository/user/ClientRepository.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/model/user/Client.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/repository/OrderRepository.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/profiles/LoggerInterface.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/BeanConfiguration.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/repository/user/UserRepository.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/model/user/Order.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/model/user/Employee.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/repository/user/EmployeeRepository.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/config/DataProperties.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/repository/ProductRepository.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/profiles/InfoLogger.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/model/user/User.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/OnlineShopApplication.java
+/Users/paulserafim/Downloads/online-shop/src/main/java/com/online/shop/onlineshop/config/ConfigProperties.java
