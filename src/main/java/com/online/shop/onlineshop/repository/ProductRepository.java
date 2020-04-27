@@ -4,6 +4,7 @@ import com.online.shop.onlineshop.model.Product;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+@Slf4j
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
@@ -59,15 +61,22 @@ public class ProductRepository {
         {
             if(productHashMap.containsKey(product.getBarcode())) {
                 LinkedList<Product> productsOnBarcode = productHashMap.get(barcode);
-                for (int index = 0; index < quantity; index++)
+                for (int index = 0; index < quantity; index++) {
+                    product.setBarcode(barcode);
                     productsOnBarcode.add(product);
+                }
                 productHashMap.put(barcode, productsOnBarcode);
+                log.info(productHashMap.get(barcode).toString());
             }
             else {
                 LinkedList<Product> productsOnBarcode = new LinkedList<>();
-                for (int index = 0; index < quantity; index++)
+                for (int index = 0; index < quantity; index++) {
+                    product.setBarcode(barcode);
                     productsOnBarcode.add(product);
+                }
                 productHashMap.put(barcode, productsOnBarcode);
+                for(int index = 0; index < productHashMap.get(barcode).size(); index++)
+                    log.info("Product:" + productHashMap.get(barcode).get(index).toString());
             }
         }
     }

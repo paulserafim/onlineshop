@@ -26,6 +26,5 @@ public class OnlineShopApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info("fasdfa");
 	}
 }

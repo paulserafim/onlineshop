@@ -5,6 +5,7 @@ import lombok.*;
 import java.awt.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -14,10 +15,21 @@ public class Product {
     private Image image;
     private double currentPrice, acquisitionPrice;
 
-    public Product() {};
 
     public Product(String name, double currentPrice) {
         this.name = name;
         this.currentPrice = currentPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", barcode='" + barcode + '\'' +
+                ", image=" + image +
+                ", currentPrice=" + currentPrice +
+                ", acquisitionPrice=" + acquisitionPrice +
+                '}';
     }
 }

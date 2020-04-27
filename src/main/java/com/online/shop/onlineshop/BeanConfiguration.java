@@ -22,6 +22,7 @@ public class BeanConfiguration {
     public ProductRepository productRepository() throws URISyntaxException {
         ProductRepository productRepository = new ProductRepository();
         Path path = Paths.get(getClass().getClassLoader().getResource(dataProperties.getProductDataPath()).toURI());
+        System.out.println(path.toString());
         productRepository.loadFromFile(path.toString());
         return productRepository;
     }
