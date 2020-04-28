@@ -12,6 +12,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,8 +29,6 @@ class ProductRepositoryTest {
         assertTrue(productRepository.getProductHashMap().containsKey("123456789"));
         assertEquals(productRepository.getProductHashMap().get("123456789").getFirst().getName().compareTo("Mockname"), 0);
         assertTrue(productRepository.getProductHashMap().get("123456789") instanceof List);
-
-
     }
 
     @Test
@@ -50,5 +49,23 @@ class ProductRepositoryTest {
         assertEquals(productRepository.getProductHashMap().get("123456789").size(), 5);
         assertEquals(productRepository.getProductHashMap().get("123456789").getFirst().getName().compareTo("Mockname"), 0);
         assertTrue(productRepository.getProductHashMap().get("123456789") instanceof List);
+    }
+
+    @Test
+    void getProductsByBarcode() throws URISyntaxException{
+        ProductRepository productRepository = new ProductRepository();
+        Path path = Paths.get(getClass().getClassLoader().getResource("testdata.txt").toURI());
+        productRepository.loadFromFile(path.toString());
+        assertThrows(NullPointerException.class, () -> productRepository.getProductsByBarcode("123"));
+        assertTrue(productRepository.getProductsByBarcode("8695122005662") instanceof List);
+    }
+
+    @Test
+    void getProductByBarcode() throws URISyntaxException{
+        ProductRepository productRepository = new ProductRepository();
+        Path path = Paths.get(getClass().getClassLoader().getResource("testdata.txt").toURI());
+        productRepository.loadFromFile(path.toString());
+        assertThrows(NullPointerException.class, () -> productRepository.getProductByBarcode("123"));
+        assertTrue(productRepository.getProductByBarcode("8695122005662") instanceof Product);
     }
 }

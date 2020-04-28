@@ -8,9 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 @Slf4j
 @EqualsAndHashCode
@@ -79,5 +77,19 @@ public class ProductRepository {
                     log.info("Product:" + productHashMap.get(barcode).get(index).toString());
             }
         }
+    }
+
+    public LinkedList<Product> getProductsByBarcode(String barcode) {
+        if(productHashMap.containsKey(barcode))
+            return productHashMap.get(barcode);
+        else
+            throw new NullPointerException("The product:" + barcode +" does not exist in your database");
+    }
+
+    public Product getProductByBarcode (String barcode) {
+        if(productHashMap.containsKey(barcode))
+            return productHashMap.get(barcode).getFirst();
+        else
+            throw new NullPointerException("The product:" + barcode +" does not exist in your database");
     }
 }
