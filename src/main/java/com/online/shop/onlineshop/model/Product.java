@@ -10,7 +10,7 @@ import java.awt.*;
 @Getter
 @Setter
 
-public class Product {
+public class Product implements Comparable<Product>{
     private String name, description, barcode;
     private Image image;
     private double currentPrice, acquisitionPrice;
@@ -19,6 +19,10 @@ public class Product {
     public Product(String name, double currentPrice) {
         this.name = name;
         this.currentPrice = currentPrice;
+    }
+
+    public Product(String barcode) {
+        this.barcode = barcode;
     }
 
     @Override
@@ -31,5 +35,10 @@ public class Product {
                 ", currentPrice=" + currentPrice +
                 ", acquisitionPrice=" + acquisitionPrice +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return this.getBarcode().compareTo(o.getBarcode());
     }
 }

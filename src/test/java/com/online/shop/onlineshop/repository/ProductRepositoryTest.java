@@ -68,4 +68,25 @@ class ProductRepositoryTest {
         assertThrows(NullPointerException.class, () -> productRepository.getProductByBarcode("123"));
         assertTrue(productRepository.getProductByBarcode("8695122005662") instanceof Product);
     }
+
+    @Test
+    void retrieveFromRepo() throws URISyntaxException{
+        ProductRepository productRepository = new ProductRepository();
+        Path path = Paths.get(getClass().getClassLoader().getResource("testdata.txt").toURI());
+        productRepository.loadFromFile(path.toString());
+
+        List<Product> mockCustomerBasket = new ArrayList<Product>();
+        mockCustomerBasket.add(new Product("123"));
+        assertThrows(NullPointerException.class, () -> productRepository.retrieveFromRepo(mockCustomerBasket));
+
+        List<Product> mockCustomerBasket2 = new ArrayList<Product>();
+        mockCustomerBasket2.add(new Product("1234567069999"));
+        productRepository.retrieveFromRepo(mockCustomerBasket2);
+        assertEquals(productRepository.getProductHashMap().get("1234567069999").size(), 0);
+
+        List<Product> mockCustomerBasket3 = new ArrayList<Product>();
+        mockCustomerBasket3.add(new Product("1234567079998"));
+        mockCustomerBasket3.add(new Product("1234567079998"));
+        assertThrows(RuntimeException.class, () -> productRepository.retrieveFromRepo(mockCustomerBasket3));
+    }
 }
