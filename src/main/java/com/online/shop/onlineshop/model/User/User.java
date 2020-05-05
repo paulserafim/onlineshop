@@ -11,7 +11,7 @@ public interface User {
     void setHouseNumber(String houseNumber);
     void setEncryptedPass(String encryptedPass);
     void setAge(double age);
-    void setId(String id);
+    void setId(Long id);
     String getFirstName();
     String getLastName();
     String getEmail();
@@ -22,6 +22,6 @@ public interface User {
     String getHouseNumber();
     String getEncryptedPass();
     double getAge();
-    String getId();
+    Long getId();
 
 }

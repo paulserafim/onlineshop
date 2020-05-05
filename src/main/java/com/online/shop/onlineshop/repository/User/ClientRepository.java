@@ -1,30 +1,15 @@
 package com.online.shop.onlineshop.repository.user;
 
-import com.online.shop.onlineshop.model.user.User;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.online.shop.onlineshop.model.user.Client;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
+import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-public class ClientRepository implements UserRepository {
-    private HashMap<String, User> clientHashMap = new HashMap<>();
-
-
-    public HashMap<String, User> getClientHashMap() {
-        return clientHashMap;
-    }
-
-    public void setClientHashMap(HashMap<String, User> clientHashMap) {
-        this.clientHashMap = clientHashMap;
-    }
-
-    @Override
-    public void addUserToRepo(String id, User client) {
-        this.clientHashMap.put(id, client);
-    }
+@Repository
+public interface ClientRepository extends CrudRepository<Client, Long> {
+    List<Client> getClientByFirstName(String firstName);
+    List<Client> getClientByLastName(String lastName);
+    Client getClientById(Long id);
 
 }

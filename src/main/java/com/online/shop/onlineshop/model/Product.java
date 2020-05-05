@@ -2,27 +2,46 @@ package com.online.shop.onlineshop.model;
 
 import lombok.*;
 
-import java.awt.*;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@Getter
-@Setter
-
+@Data
+@Entity
 public class Product implements Comparable<Product>{
-    private String name, description, barcode;
-    private Image image;
+    private String name, description;
+
+    @Id
+    private String barcode;
     private double currentPrice, acquisitionPrice;
 
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
+    @JoinColumn
+    private Inventory inventory;
+
+    @ManyToOne
+    @JoinColumn
+    private ClientOrder clientOrder;
 
     public Product(String name, double currentPrice) {
         this.name = name;
         this.currentPrice = currentPrice;
     }
 
-    public Product(String barcode) {
+    public Product(String name, String description, String barcode, double currentPrice, double acquisitionPrice) {
+        this.name = name;
+        this.description = description;
         this.barcode = barcode;
+        this.currentPrice= currentPrice;
+        this.acquisitionPrice = acquisitionPrice;
+    }
+
+
+
+    public Product(String barcode, double currentPrice, String name) {
+        this.barcode = barcode;
+        this.currentPrice = currentPrice;
+        this.name = name;
     }
 
     @Override
@@ -31,7 +50,6 @@ public class Product implements Comparable<Product>{
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", barcode='" + barcode + '\'' +
-                ", image=" + image +
                 ", currentPrice=" + currentPrice +
                 ", acquisitionPrice=" + acquisitionPrice +
                 '}';

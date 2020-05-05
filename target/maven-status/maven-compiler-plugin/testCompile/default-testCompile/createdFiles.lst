@@ -1,6 +1,5 @@
 com/online/shop/onlineshop/config/DataPropertiesTest.class
 com/online/shop/onlineshop/repository/user/EmployeeRepositoryTest.class
-com/online/shop/onlineshop/repository/user/ClientRepositoryTest.class
 com/online/shop/onlineshop/config/ConfigPropertiesTest.class
 com/online/shop/onlineshop/repository/ProductRepositoryTest.class
 com/online/shop/onlineshop/OnlineShopApplicationTests.class

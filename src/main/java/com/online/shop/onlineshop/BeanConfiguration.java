@@ -18,6 +18,7 @@ public class BeanConfiguration {
     @Autowired
     DataProperties dataProperties;
 
+    /*
     @Bean
     public ProductRepository productRepository() throws URISyntaxException {
         ProductRepository productRepository = new ProductRepository();
@@ -26,4 +27,6 @@ public class BeanConfiguration {
         productRepository.loadFromFile(path.toString());
         return productRepository;
     }
+
+     */
 }

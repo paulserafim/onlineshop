@@ -1,27 +1,29 @@
 package com.online.shop.onlineshop.model.user;
 
-import com.online.shop.onlineshop.model.Product;
-import com.online.shop.onlineshop.repository.OrderRepository;
-import com.online.shop.onlineshop.repository.ProductRepository;
+import com.online.shop.onlineshop.model.ClientOrder;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import javax.persistence.*;
+import java.util.List;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@Getter
-@Setter
-
+@Data
+@Entity
 public class Client implements User {
 
+    /*
     @Autowired
     ProductRepository productRepository;
-    OrderRepository orderRepository;
+    ClientOrderRepository orderRepository;
+
+
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
 
     private String firstName;
     private String lastName;
@@ -32,19 +34,52 @@ public class Client implements User {
     private String street;
     private String houseNumber;
     private String encryptedPass;
-    private String id;
     private double age;
     private String phoneNumber;
 
-    public void placeOrder(LocalDate dueDate, String additionalInfo, ArrayList<Product> orderedProducts) {
-        Order order = new Order(System.currentTimeMillis());
-        order.setPlacedDate((LocalDate.now()));
-        order.setDueDate(dueDate);
-        order.setAdditionalInfo(additionalInfo);
-        order.setProductList(orderedProducts);
-        order.setClient(this);
-        productRepository.retrieveFromRepo(orderedProducts);
-        order.setStatus("CONFIRMED");
-        orderRepository.addOneOrderToRepo(order.getOrderId(), order);
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<ClientOrder> clientOrderList;
+
+
+    public Client (String firstName, String lastName, String email, String city, String county, String country, String street, String houseNumber, double age, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.city = city;
+        this.county = county;
+        this.country = country;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
     }
+
+    public Client(String firstName, String lastName, String email, String city, String county, String country, String street, String houseNumber, String encryptedPass, double age, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.city = city;
+        this.county = county;
+        this.country = country;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.encryptedPass = encryptedPass;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+    }
+/*
+    public void placeOrder(LocalDate dueDate, String additionalInfo, ArrayList<Product> orderedProducts) {
+        ClientOrder clientOrder = new ClientOrder(System.currentTimeMillis());
+        clientOrder.setPlacedDate((LocalDate.now()));
+        clientOrder.setDueDate(dueDate);
+        clientOrder.setAdditionalInfo(additionalInfo);
+        clientOrder.setProductList(orderedProducts);
+        clientOrder.setClient(this);
+        productRepository.retrieveFromRepo(orderedProducts);
+        clientOrder.setStatus("CONFIRMED");
+        orderRepository.addOneOrderToRepo(clientOrder.getOrderId(), clientOrder);
+    }
+
+
+ */
 }
