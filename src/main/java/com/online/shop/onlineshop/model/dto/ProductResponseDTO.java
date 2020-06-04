@@ -13,4 +13,10 @@ public class ProductResponseDTO {
     private String description;
     private String barcode;
     private double currentPrice;
+
+    public ProductResponseDTO(String name, String barcode, double currentPrice) {
+        this.name = name;
+        this.barcode = barcode;
+        this.currentPrice = currentPrice;
+    }
 }

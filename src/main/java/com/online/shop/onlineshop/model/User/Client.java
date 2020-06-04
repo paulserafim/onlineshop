@@ -1,9 +1,17 @@
 package com.online.shop.onlineshop.model.user;
 
+import com.online.shop.onlineshop.model.Basket;
 import com.online.shop.onlineshop.model.ClientOrder;
+import com.online.shop.onlineshop.model.Inventory;
+import com.online.shop.onlineshop.model.Product;
+import com.online.shop.onlineshop.service.ClientOrderService;
+import com.online.shop.onlineshop.service.InventoryService;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -13,17 +21,10 @@ import java.util.List;
 @Entity
 public class Client implements User {
 
-    /*
-    @Autowired
-    ProductRepository productRepository;
-    ClientOrderRepository orderRepository;
 
-
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
 
     private String firstName;
     private String lastName;
@@ -36,6 +37,9 @@ public class Client implements User {
     private String encryptedPass;
     private double age;
     private String phoneNumber;
+
+    @OneToMany (mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Basket> baskets;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<ClientOrder> clientOrderList;
@@ -67,19 +71,6 @@ public class Client implements User {
         this.age = age;
         this.phoneNumber = phoneNumber;
     }
-/*
-    public void placeOrder(LocalDate dueDate, String additionalInfo, ArrayList<Product> orderedProducts) {
-        ClientOrder clientOrder = new ClientOrder(System.currentTimeMillis());
-        clientOrder.setPlacedDate((LocalDate.now()));
-        clientOrder.setDueDate(dueDate);
-        clientOrder.setAdditionalInfo(additionalInfo);
-        clientOrder.setProductList(orderedProducts);
-        clientOrder.setClient(this);
-        productRepository.retrieveFromRepo(orderedProducts);
-        clientOrder.setStatus("CONFIRMED");
-        orderRepository.addOneOrderToRepo(clientOrder.getOrderId(), clientOrder);
-    }
 
 
- */
 }

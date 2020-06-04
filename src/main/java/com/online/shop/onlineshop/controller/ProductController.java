@@ -26,7 +26,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity getProduct(@PathVariable String barcode) {
-        ProductResponseDTO productToGet = productService.getProductByBarcode(barcode);
+        ProductResponseDTO productToGet = productService.getProductResponseByBarcode(barcode);
         return ResponseEntity.status(HttpStatus.OK).body(productToGet);
     }
 

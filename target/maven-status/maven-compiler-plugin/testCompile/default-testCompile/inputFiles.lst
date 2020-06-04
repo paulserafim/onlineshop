@@ -1,5 +1,6 @@
 /Users/paulserafim/Desktop/online-shop/src/test/java/com/online/shop/onlineshop/OnlineShopApplicationTests.java
 /Users/paulserafim/Desktop/online-shop/src/test/java/com/online/shop/onlineshop/repository/user/EmployeeRepositoryTest.java
 /Users/paulserafim/Desktop/online-shop/src/test/java/com/online/shop/onlineshop/config/ConfigPropertiesTest.java
+/Users/paulserafim/Desktop/online-shop/src/test/java/com/online/shop/onlineshop/controller/user/ClientControllerTest.java
 /Users/paulserafim/Desktop/online-shop/src/test/java/com/online/shop/onlineshop/config/DataPropertiesTest.java
 /Users/paulserafim/Desktop/online-shop/src/test/java/com/online/shop/onlineshop/repository/ProductRepositoryTest.java

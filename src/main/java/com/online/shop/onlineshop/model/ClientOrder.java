@@ -18,9 +18,6 @@ public class ClientOrder {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
 
-    @OneToMany(mappedBy = "clientOrder", cascade = CascadeType.ALL)
-    private List <Product> productList = new ArrayList<>();
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Client client;
@@ -30,7 +27,21 @@ public class ClientOrder {
     private String status;
     private String additionalInfo;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
+    private Basket basket;
+
+    private double totalValue;
+
     public ClientOrder(Long orderId) {
         this.orderId = orderId;
+    }
+
+    public void checkOut() {
+        basket.getBasketItems().forEach(
+                element -> {
+                    totalValue += element.getQuantity() + element.getProduct().getCurrentPrice();
+                }
+        );
     }
 }

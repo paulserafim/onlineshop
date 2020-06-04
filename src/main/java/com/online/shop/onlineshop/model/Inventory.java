@@ -13,14 +13,19 @@ import javax.persistence.*;
 public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    Product product;
-    int quantity;
+    private Product product;
+    private int quantity;
 
     public Inventory(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
+    }
+
+    @Override
+    public int hashCode() {
+        return id.intValue();
     }
 }

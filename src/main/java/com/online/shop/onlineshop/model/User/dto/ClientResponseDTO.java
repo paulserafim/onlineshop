@@ -23,4 +23,9 @@ public class ClientResponseDTO {
     private double age;
     private String phoneNumber;
 
+    public ClientResponseDTO(long id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

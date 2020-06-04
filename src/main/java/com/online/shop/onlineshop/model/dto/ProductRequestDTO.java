@@ -14,4 +14,11 @@ public class ProductRequestDTO {
     private String barcode;
     private double currentPrice;
     private double acquisitionPrice;
+
+    public ProductRequestDTO(String name, String barcode, double currentPrice, double acquisitionPrice) {
+        this.name = name;
+        this.barcode = barcode;
+        this.currentPrice = currentPrice;
+        this.acquisitionPrice = acquisitionPrice;
+    }
 }

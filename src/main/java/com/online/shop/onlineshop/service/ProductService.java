@@ -8,6 +8,7 @@ import com.online.shop.onlineshop.model.user.dto.ClientResponseDTO;
 import com.online.shop.onlineshop.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -38,7 +39,7 @@ public class ProductService {
         );
     }
 
-    public ProductResponseDTO getProductByBarcode(String id) {
+    public ProductResponseDTO getProductResponseByBarcode(String id) {
         Optional<Product> product = productRepository.findById(id);
 
         return new ProductResponseDTO(
@@ -46,6 +47,11 @@ public class ProductService {
                 product.map(Product::getDescription).orElse(null),
                 product.map(Product::getBarcode).orElse(null),
                 product.map(Product::getCurrentPrice).orElse(null));
+    }
+
+    public Product getProductByBarcode(String barcode) {
+        Optional<Product> product = productRepository.findById(barcode);
+        return product.get();
     }
 
     public List<ProductResponseDTO> getAllProducts() {

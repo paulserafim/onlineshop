@@ -19,4 +19,9 @@ public class ClientRequestDTO {
     private String encryptedPass;
     private double age;
     private String phoneNumber;
+
+    public ClientRequestDTO(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

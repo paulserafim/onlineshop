@@ -29,7 +29,7 @@ public class ClientController {
 
     @GetMapping("/{id}")
     public ResponseEntity getClient(@PathVariable Long id) {
-        ClientResponseDTO clientToGet = clientService.getClientById(id);
+        ClientResponseDTO clientToGet = clientService.getClientResponseById(id);
         return ResponseEntity.status(HttpStatus.OK).body(clientToGet);
     }
 

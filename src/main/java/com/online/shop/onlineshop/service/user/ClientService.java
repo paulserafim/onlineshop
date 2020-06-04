@@ -6,6 +6,7 @@ import com.online.shop.onlineshop.model.user.dto.ClientResponseDTO;
 import com.online.shop.onlineshop.repository.user.ClientRepository;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -49,7 +50,7 @@ public class ClientService {
         );
     }
 
-    public ClientResponseDTO getClientById(Long id) {
+    public ClientResponseDTO getClientResponseById(Long id) {
         Optional<Client> client = clientRepository.findById(id);
 
         return new ClientResponseDTO(
@@ -66,6 +67,7 @@ public class ClientService {
                 client.map(Client::getPhoneNumber).orElse(null)
         );
     }
+
 
     public List<ClientResponseDTO> getAllClients() {
         Iterable <Client> clientIterable = clientRepository.findAll();
@@ -88,5 +90,10 @@ public class ClientService {
             ));
         }
         return clientResponseDTOList;
+    }
+
+    public Client getClientById(Long id) {
+        Optional<Client> client = clientRepository.findById(id);
+        return client.get();
     }
 }
